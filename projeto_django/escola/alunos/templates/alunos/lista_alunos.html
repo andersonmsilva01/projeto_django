@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Alunos</title>
+</head>
+<body>
+    <h1>Alunos Cadastrados</h1>
+
+    <a href="/alunos/novo/">➕ Novo Aluno</a>
+
+    <ul>
+        {% for aluno in alunos %}
+            <li>
+                {{ aluno.nome }} - {{ aluno.idade }} anos - {{ aluno.email }}
+                {% if aluno.matriculado %}
+                    ✅ Matriculado
+                {% else %}
+                    ❌ Não matriculado
+                {% endif %}
+            </li>
+        {% empty %}
+            <li>Nenhum aluno cadastrado.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
